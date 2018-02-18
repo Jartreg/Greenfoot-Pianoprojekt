@@ -3,6 +3,9 @@ import greenfoot.Color;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
+/**
+ * Zeigt einen Hilfetext unter der Klaviatur an und entfernt sich danach selbst
+ */
 public class InfoText extends Actor {
 	private static final String[] HINTS = {
 			"Klaviatur von <A> bis <Enter>",

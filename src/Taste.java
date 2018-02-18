@@ -84,6 +84,8 @@ public class Taste extends Actor implements AWTEventListener {
 	private boolean isMouseDown() {
 		if (!mouseDown && Greenfoot.mousePressed(this) && Greenfoot.getMouseInfo().getButton() == 1) {
 			mouseDown = true;
+
+			// Benachrichtigt die Taste, wenn die Maustaste losgelassen wurde
 			Toolkit.getDefaultToolkit().addAWTEventListener(this, AWTEvent.MOUSE_EVENT_MASK);
 		}
 
@@ -93,6 +95,7 @@ public class Taste extends Actor implements AWTEventListener {
 	@Override
 	public void eventDispatched(AWTEvent event) {
 		if (event instanceof MouseEvent && event.getID() == MouseEvent.MOUSE_RELEASED && SwingUtilities.isLeftMouseButton((MouseEvent) event)) {
+			// Die Maustaste wurde losgelassen
 			mouseDown = false;
 			Toolkit.getDefaultToolkit().removeAWTEventListener(this);
 		}

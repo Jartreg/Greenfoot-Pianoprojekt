@@ -19,7 +19,7 @@ public class Piano extends World {
 		super(background.getWidth(), background.getHeight(), 1);
 
 		setBackground(background);
-		setPaintOrder(TasteSchwarz.class, TasteWeiss.class);
+		setPaintOrder(TasteSchwarz.class, TasteWeiss.class); // Schwarze Noten sollen über weißen Noten erscheinen
 
 		setupSynthesizer(); // Synthesizer erstellen
 		currentOctave = synthesizer == null ? 2 : 4; // Oktave festlegen
@@ -67,8 +67,7 @@ public class Piano extends World {
 		// Nach jeder weißen Note wird posX erhöht, um die nächste Note daneben zu platzieren.
 		// Schwarze Noten spielen für die Platzierung der weißen Noten also keine Rolle.
 		// Zudem werden weiße Note um eine halbe Breite nach rechts verschoben,
-		// Damit schwarze No
-		// ten in der Mitte sind
+		// Damit schwarze Noten in der Mitte sind
 		for (int i = 0; posX <= getWidth(); i++) {
 			Note note = new Note(i + startNote);
 			Taste taste = note.isBlack() ? new TasteSchwarz(note, keys[i]) : new TasteWeiss(note, keys[i]);
